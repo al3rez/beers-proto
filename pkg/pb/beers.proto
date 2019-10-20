@@ -18,7 +18,18 @@ message BeerAddRequest {
 	string name = 1;
 }
 
+message BeerRemoveResponse {
+	int32 id = 1;
+	string name = 2;
+	Status status = 3;
+	string err_msg = 4;
+}
+
+message BeerRemoveRequest {
+	int32 id = 1;
+}
 
 service Beers {
 	rpc Add(BeerAddRequest) returns (BeerAddResponse) {}
+	rpc Remove(BeerRemoveRequest) returns (BeerRemoveResponse) {}
 }
