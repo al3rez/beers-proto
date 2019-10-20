@@ -151,30 +151,136 @@ func (m *BeerAddRequest) GetName() string {
 	return ""
 }
 
+type BeerRemoveResponse struct {
+	Id                   int32    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Status               Status   `protobuf:"varint,3,opt,name=status,proto3,enum=pb.Status" json:"status,omitempty"`
+	ErrMsg               string   `protobuf:"bytes,4,opt,name=err_msg,json=errMsg,proto3" json:"err_msg,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BeerRemoveResponse) Reset()         { *m = BeerRemoveResponse{} }
+func (m *BeerRemoveResponse) String() string { return proto.CompactTextString(m) }
+func (*BeerRemoveResponse) ProtoMessage()    {}
+func (*BeerRemoveResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_75daee14f32918a9, []int{2}
+}
+
+func (m *BeerRemoveResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BeerRemoveResponse.Unmarshal(m, b)
+}
+func (m *BeerRemoveResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BeerRemoveResponse.Marshal(b, m, deterministic)
+}
+func (m *BeerRemoveResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BeerRemoveResponse.Merge(m, src)
+}
+func (m *BeerRemoveResponse) XXX_Size() int {
+	return xxx_messageInfo_BeerRemoveResponse.Size(m)
+}
+func (m *BeerRemoveResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_BeerRemoveResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BeerRemoveResponse proto.InternalMessageInfo
+
+func (m *BeerRemoveResponse) GetId() int32 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *BeerRemoveResponse) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *BeerRemoveResponse) GetStatus() Status {
+	if m != nil {
+		return m.Status
+	}
+	return Status_OK
+}
+
+func (m *BeerRemoveResponse) GetErrMsg() string {
+	if m != nil {
+		return m.ErrMsg
+	}
+	return ""
+}
+
+type BeerRemoveRequest struct {
+	Id                   int32    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BeerRemoveRequest) Reset()         { *m = BeerRemoveRequest{} }
+func (m *BeerRemoveRequest) String() string { return proto.CompactTextString(m) }
+func (*BeerRemoveRequest) ProtoMessage()    {}
+func (*BeerRemoveRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_75daee14f32918a9, []int{3}
+}
+
+func (m *BeerRemoveRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BeerRemoveRequest.Unmarshal(m, b)
+}
+func (m *BeerRemoveRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BeerRemoveRequest.Marshal(b, m, deterministic)
+}
+func (m *BeerRemoveRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BeerRemoveRequest.Merge(m, src)
+}
+func (m *BeerRemoveRequest) XXX_Size() int {
+	return xxx_messageInfo_BeerRemoveRequest.Size(m)
+}
+func (m *BeerRemoveRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_BeerRemoveRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BeerRemoveRequest proto.InternalMessageInfo
+
+func (m *BeerRemoveRequest) GetId() int32 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterEnum("pb.Status", Status_name, Status_value)
 	proto.RegisterType((*BeerAddResponse)(nil), "pb.BeerAddResponse")
 	proto.RegisterType((*BeerAddRequest)(nil), "pb.BeerAddRequest")
+	proto.RegisterType((*BeerRemoveResponse)(nil), "pb.BeerRemoveResponse")
+	proto.RegisterType((*BeerRemoveRequest)(nil), "pb.BeerRemoveRequest")
 }
 
 func init() { proto.RegisterFile("pkg/pb/beers.proto", fileDescriptor_75daee14f32918a9) }
 
 var fileDescriptor_75daee14f32918a9 = []byte{
-	// 216 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x8f, 0x41, 0x4b, 0x03, 0x31,
-	0x10, 0x85, 0x9b, 0x6c, 0x9b, 0xe2, 0x1c, 0xd6, 0x32, 0x1e, 0x8c, 0x9e, 0x96, 0xe0, 0x61, 0xf1,
-	0xb0, 0x95, 0x7a, 0xf2, 0xb8, 0xc5, 0x9b, 0x88, 0x10, 0x7f, 0x80, 0x34, 0x64, 0x58, 0x8a, 0xb4,
-	0x1b, 0x67, 0xd2, 0xff, 0x2f, 0x4d, 0xa5, 0xd2, 0xdb, 0xf0, 0x86, 0xf7, 0x7d, 0x3c, 0xc0, 0xf4,
-	0x3d, 0x2c, 0x53, 0x58, 0x06, 0x22, 0x96, 0x2e, 0xf1, 0x98, 0x47, 0xd4, 0x29, 0x38, 0x86, 0xeb,
-	0x35, 0x11, 0xf7, 0x31, 0x7a, 0x92, 0x34, 0xee, 0x85, 0xb0, 0x06, 0xbd, 0x8d, 0x56, 0x35, 0xaa,
-	0x9d, 0x79, 0xbd, 0x8d, 0x88, 0x30, 0xdd, 0x6f, 0x76, 0x64, 0x75, 0xa3, 0xda, 0x2b, 0x5f, 0x6e,
-	0x74, 0x60, 0x24, 0x6f, 0xf2, 0x41, 0x6c, 0xd5, 0xa8, 0xb6, 0x5e, 0x41, 0x97, 0x42, 0xf7, 0x59,
-	0x12, 0xff, 0xf7, 0xc1, 0x5b, 0x98, 0x13, 0xf3, 0xd7, 0x4e, 0x06, 0x3b, 0x2d, 0x55, 0x43, 0xcc,
-	0xef, 0x32, 0xb8, 0x07, 0xa8, 0xcf, 0xce, 0x9f, 0x03, 0x49, 0x3e, 0x2b, 0xd4, 0xbf, 0xe2, 0xf1,
-	0x0e, 0xcc, 0x09, 0x88, 0x06, 0xf4, 0xc7, 0xdb, 0x62, 0x82, 0x73, 0xa8, 0xd6, 0xfd, 0xeb, 0x42,
-	0xad, 0x5e, 0x60, 0x76, 0x04, 0x08, 0x3e, 0x41, 0xd5, 0xc7, 0x88, 0x78, 0xb4, 0x5f, 0x22, 0xef,
-	0x6f, 0x2e, 0xb2, 0xd3, 0x34, 0x37, 0x09, 0xa6, 0x4c, 0x7f, 0xfe, 0x0d, 0x00, 0x00, 0xff, 0xff,
-	0x82, 0x0a, 0x34, 0xde, 0x10, 0x01, 0x00, 0x00,
+	// 256 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x91, 0xb1, 0x4e, 0xc3, 0x30,
+	0x18, 0x84, 0x6b, 0xa7, 0x75, 0xc5, 0x3f, 0x84, 0xf2, 0x23, 0x20, 0x74, 0x8a, 0x0c, 0x43, 0xc4,
+	0x90, 0xa2, 0x32, 0x31, 0xa6, 0x62, 0x43, 0x08, 0xc9, 0x3c, 0x00, 0xaa, 0xe5, 0x5f, 0x51, 0x85,
+	0xd2, 0x18, 0xdb, 0xe1, 0xf9, 0x51, 0x12, 0x5a, 0x48, 0x1e, 0x80, 0xcd, 0x3a, 0xdf, 0xf9, 0xbb,
+	0x93, 0x01, 0xed, 0x47, 0xb9, 0xb2, 0x7a, 0xa5, 0x89, 0x9c, 0xcf, 0xad, 0xab, 0x43, 0x8d, 0xdc,
+	0x6a, 0xe9, 0xe0, 0x74, 0x43, 0xe4, 0x0a, 0x63, 0x14, 0x79, 0x5b, 0xef, 0x3d, 0x61, 0x0c, 0x7c,
+	0x67, 0x12, 0x96, 0xb2, 0x6c, 0xa6, 0xf8, 0xce, 0x20, 0xc2, 0x74, 0xbf, 0xad, 0x28, 0xe1, 0x29,
+	0xcb, 0x4e, 0x54, 0x77, 0x46, 0x09, 0xc2, 0x87, 0x6d, 0x68, 0x7c, 0x12, 0xa5, 0x2c, 0x8b, 0xd7,
+	0x90, 0x5b, 0x9d, 0xbf, 0x75, 0x8a, 0xfa, 0xb9, 0xc1, 0x2b, 0x98, 0x93, 0x73, 0xef, 0x95, 0x2f,
+	0x93, 0x69, 0x17, 0x15, 0xe4, 0xdc, 0x8b, 0x2f, 0xe5, 0x2d, 0xc4, 0x47, 0xe6, 0x67, 0x43, 0x3e,
+	0x1c, 0x11, 0xec, 0x17, 0x21, 0x1b, 0xc0, 0xd6, 0xa5, 0xa8, 0xaa, 0xbf, 0xe8, 0xff, 0xca, 0xdd,
+	0xc0, 0xd9, 0x5f, 0x6c, 0xdf, 0x6f, 0x44, 0xbd, 0xbb, 0x06, 0xd1, 0xbf, 0x87, 0x02, 0xf8, 0xeb,
+	0xf3, 0x62, 0x82, 0x73, 0x88, 0x36, 0xc5, 0xd3, 0x82, 0xad, 0x03, 0xcc, 0xda, 0xbc, 0xc7, 0x7b,
+	0x88, 0x0a, 0x63, 0x10, 0x5b, 0xf8, 0x70, 0xee, 0xf2, 0x7c, 0xa0, 0xf5, 0xcb, 0xe4, 0x04, 0x1f,
+	0x41, 0xf4, 0x58, 0xbc, 0x38, 0x18, 0x06, 0x35, 0x96, 0x97, 0x63, 0xf9, 0x10, 0xd5, 0xa2, 0xfb,
+	0xd1, 0x87, 0xef, 0x00, 0x00, 0x00, 0xff, 0xff, 0xec, 0xb6, 0xfa, 0x4b, 0xe7, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -190,6 +296,7 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type BeersClient interface {
 	Add(ctx context.Context, in *BeerAddRequest, opts ...grpc.CallOption) (*BeerAddResponse, error)
+	Remove(ctx context.Context, in *BeerRemoveRequest, opts ...grpc.CallOption) (*BeerRemoveResponse, error)
 }
 
 type beersClient struct {
@@ -209,9 +316,19 @@ func (c *beersClient) Add(ctx context.Context, in *BeerAddRequest, opts ...grpc.
 	return out, nil
 }
 
+func (c *beersClient) Remove(ctx context.Context, in *BeerRemoveRequest, opts ...grpc.CallOption) (*BeerRemoveResponse, error) {
+	out := new(BeerRemoveResponse)
+	err := c.cc.Invoke(ctx, "/pb.Beers/Remove", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BeersServer is the server API for Beers service.
 type BeersServer interface {
 	Add(context.Context, *BeerAddRequest) (*BeerAddResponse, error)
+	Remove(context.Context, *BeerRemoveRequest) (*BeerRemoveResponse, error)
 }
 
 // UnimplementedBeersServer can be embedded to have forward compatible implementations.
@@ -220,6 +337,9 @@ type UnimplementedBeersServer struct {
 
 func (*UnimplementedBeersServer) Add(ctx context.Context, req *BeerAddRequest) (*BeerAddResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
+}
+func (*UnimplementedBeersServer) Remove(ctx context.Context, req *BeerRemoveRequest) (*BeerRemoveResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Remove not implemented")
 }
 
 func RegisterBeersServer(s *grpc.Server, srv BeersServer) {
@@ -244,6 +364,24 @@ func _Beers_Add_Handler(srv interface{}, ctx context.Context, dec func(interface
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Beers_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeerRemoveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeersServer).Remove(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.Beers/Remove",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeersServer).Remove(ctx, req.(*BeerRemoveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Beers_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "pb.Beers",
 	HandlerType: (*BeersServer)(nil),
@@ -251,6 +389,10 @@ var _Beers_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Add",
 			Handler:    _Beers_Add_Handler,
+		},
+		{
+			MethodName: "Remove",
+			Handler:    _Beers_Remove_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
